@@ -1,0 +1,386 @@
+@font-face {
+    font-family: 'azeroth';
+    src: url('../fonts/azeroth.eot');
+    src: url('../fonts/azeroth.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/azeroth.woff2') format('woff2'),
+         url('../fonts/azeroth.woff') format('woff'),
+         url('../fonts/azeroth.ttf') format('truetype'),
+         url('../fonts/azeroth.svg#azeroth') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'vingue';
+    src: url('../fonts/vingue.eot');
+    src: url('../fonts/vingue.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/vingue.woff2') format('woff2'),
+         url('../fonts/vingue.woff') format('woff'),
+         url('../fonts/vingue.ttf') format('truetype'),
+         url('../fonts/vingue.svg#vingue') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('../fonts/fontawesome-webfont.eot?v=4.5.0');
+  src: url('../fonts/fontawesome-webfont.eot?#iefix&v=4.5.0') format('embedded-opentype'), url('../fonts/fontawesome-webfont.woff2?v=4.5.0') format('woff2'), url('../fonts/fontawesome-webfont.woff?v=4.5.0') format('woff'), url('../fonts/fontawesome-webfont.ttf?v=4.5.0') format('truetype'), url('../fonts/fontawesome-webfont.svg?v=4.5.0#fontawesomeregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*checkbox*/
+label {font-weight: normal;}
+input[type=checkbox] { display:none; }
+input[type=checkbox] + label:before {
+  font-family: FontAwesome;
+  display: inline-block;
+}
+
+input[type=checkbox] + label:before { content: "\f096"; }
+input[type=checkbox] + label:before { width: 1.2em; text-align:left; }
+
+input[type=checkbox]:checked + label:before { content: "\f046"; }
+
+
+input[type=radio] { display:none; }
+input[type=radio] + label:before {
+  font-family: FontAwesome;
+  display: inline-block;
+}
+
+input[type=radio] + label:before { content: "\f10c"; }
+input[type=radio] + label:before { width: 1.2em; text-align:left; }
+
+input[type=radio]:checked + label:before { content: "\f05d"; }
+
+/*main*/
+html {
+	margin-left: calc(100vw - 100%);
+	height: 100%;
+}
+body {
+	height: 100%;
+	background : rgb(36, 36, 36) url("../img/ui/bg.jpg") top center;
+	color: rgb(240,240,240);
+}
+
+.block-table {
+	display: table;
+	width: 100%;
+	table-layout: fixed;
+}
+
+.block-table > div {
+	display: table-cell;
+	vertical-align: top;
+}
+
+#wrap-table {
+	height: 100%;
+	width: auto;
+	margin: 0px auto;
+}
+
+#wrap-td {vertical-align: middle}
+#wrap-content {
+	position: relative;
+	margin-top: 6px;
+}
+
+#playWrap {
+	vertical-align: middle;
+	width: 940px;
+	border-radius: 5px;
+	padding: 10px;
+	background: rgba(0,0,0,0.5);
+	border: 1px solid rgb(20, 20, 20);
+}
+
+#playL, #playR {width: 340px}
+
+
+#playLT > div:first-child,
+#playRT > div:last-child {
+	width:160px;
+	font-size: 0;
+}
+
+#playLT > div:last-child,
+#playRT > div:first-child {
+	text-align: center;
+}
+
+#playR {text-align: right}
+
+#playC {
+	text-align: center;
+	vertical-align: top;
+}
+#playCT {
+}
+
+#playCounter {
+	white-space: nowrap;
+	padding: 4px;
+}
+
+#playCounter span {
+	color: white;
+	font-size: 18px;
+	display: block;
+}
+
+#playCounter b {
+	font: 28px vingue;
+	color: rgb(8, 255, 8);
+}
+#playCounter > .playCounterWin span {
+	font-size: 12px;
+	color: gray;
+}
+
+#playCounter > .playCounterWin b {
+	font-size: 18px;
+	color: red;
+}
+
+
+#playCB {
+	display: inline-block;
+	white-space: nowrap;
+}
+#playCB > div {
+	display: inline-block;
+	vertical-align: top;
+}
+
+#copyright {
+	display: inline-block;
+	text-align: center;
+	height: 0;
+	width: 100%;
+	float:left;
+}
+#copyright > div {padding-bottom: 4px;}
+
+#copyright span {
+	vertical-align: middle;
+	color: white;
+}
+#copyright a,
+#copyright a:visited {
+	vertical-align: middle;
+	text-decoration: underline;
+	color: white;
+}
+#copyright a:hover {
+	color: red;
+}
+
+
+.cardCell {
+	width: 100px;
+	height: 100px;
+	background: rgba(0,0,0,0.5);
+	margin: 5px;
+	border: 1px solid rgb(70, 70, 70);
+}
+.cardCell > .cardCellText {
+	display: inline-block;
+	vertical-align: middle;
+	color: rgb(120, 120, 120);
+}
+
+.cardCell:before {
+  content: "";
+  display: inline-block;
+  min-height: inherit;
+  height: 100%;
+  vertical-align: middle;
+}
+
+#P1cardWrap {
+	direction: rtl;
+	text-align: left;	
+}
+.playCardWrap {
+	padding: 10px 10px 0px;
+}
+.playCard {
+	width: 100px;
+	height: 100px;
+	background-size: 100% 100%;
+	margin: 4px;
+	display: inline-block;
+	color: red;
+	font-size: 20px;
+}
+
+#playLT .avatar {background: url("../img/avatar/1.jpg")}
+#playRT .avatar {background: url("../img/avatar/2.jpg")}
+
+.avatar {
+	width: 150px;
+	height: 150px;
+	border: 1px solid gray;
+	display: inline-block;
+}
+
+.username {
+	font: 28px azeroth;
+	color: rgb(246, 130, 0);
+	text-shadow: 0 0 4px black;
+}
+
+.health {
+	font: 28px vingue;
+	color: rgb(8, 255, 8);
+}
+
+.playManaMenuWrap {
+	width: 80px;
+}
+
+.playManaMenu {
+	width: 100%;
+	border-top:0;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 0 0 8px 8px;
+}
+
+
+.playManaMenuItem {
+	text-align: center;
+	width: 100%;
+	cursor: pointer;
+	padding-top: 8px;
+	padding-bottom: 4px;
+	border-top: 1px solid rgb(30, 30, 30);
+	border-bottom: 1px solid rgb(0, 0, 0);
+	background-color: rgb(20, 20, 20);
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;
+}
+.playManaMenuItem:first-child {border-top:0}
+.playManaMenuItem:last-child {
+	border-bottom:0;
+	border-radius: inherit;
+}
+
+.playManaMenuItem:hover {
+	background-color: rgb(15, 15, 15);
+}
+
+.playManaMenuItem:hover > span {
+	color: rgb(240,240,240);
+}
+.playManaMenuItem:hover > b {
+	color: rgb(0, 240, 0);
+}
+
+
+.playManaMenuItem.active {
+	background: rgb(35, 35, 35) none repeat scroll 0% 0%;
+	box-shadow: 0 0 2px black inset,0 0 4px black inset,0 0 6px black inset;
+	border-top-color: black
+}
+
+.playManaMenuItem > span {
+	display: block;
+	font-size: 18px;
+	color: white;
+}
+
+.playManaMenuItem.active > span {
+	color: rgb(0, 0, 0);
+	text-shadow: 1px 1px 1px rgba(230, 230, 230, 0.1);
+}
+
+.playManaMenuItem > b {
+	font-weight: normal;
+	font: 28px vingue;
+	color: rgb(8, 255, 8);
+}
+
+.playManaMenuItem.active > b {
+	color: rgb(0, 0, 0);
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+.playManaMenuItem.playSkipTurnBtn {
+	font-size: 12px;
+	color: gray;
+	padding: 0;
+}
+
+.playManaMenuItem.playSkipTurnBtn:hover {
+	color: white;
+}
+
+
+.modal {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left:0;
+	text-align: center;
+}
+
+.modal:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.6);
+	border-radius: 5px;
+	border: 1px solid rgb(110, 110, 110);
+	z-index: 1;
+}
+.modal:after {
+	content: "";
+	display: inline-block;
+	width: 0;
+	height: 100%;
+	vertical-align: middle;
+}
+
+.modalContent {
+	padding: 10px;
+	display: inline-block;
+	position: relative;
+	z-index: 2;
+	background-color: rgb(18, 18, 18);
+	border: 1px solid rgb(42, 41, 41);
+	border-radius: 5px;
+	box-shadow: 0 0 1px black inset;
+}
+
+.ta-c {text-align: center}
+
+.btn-gray {
+	background: rgb(73, 80, 84) linear-gradient(to bottom, rgb(78, 85, 89), rgb(56, 62, 67));
+	box-shadow: 0px 1px rgba(255, 255, 255, 0.08) inset, 0px 0px 0px 1px rgba(255, 255, 255, 0.05) inset /*, 0px 1px rgba(255, 255, 255, 0.08)*/;
+	border: 1px solid;
+	border-color: rgb(16, 16, 16) rgb(8, 8, 8) rgb(0, 0, 0);
+}
+
+.btn-gray:hover {
+	color: rgb(224, 224, 224);
+	background: rgb(89, 96, 101) linear-gradient(to bottom, rgb(89, 96, 101), rgb(56, 62, 67))
+}
+.btn-gray:active {
+	background: rgb(53, 58, 63) linear-gradient(to bottom, rgb(39, 43, 47), rgb(55, 61, 66));
+	border-color: rgb(0, 0, 0);
+	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1) inset, 0px 1px rgba(255, 255, 255, 0.08);
+}
+.btn-gray:focus {color: rgb(224, 224, 224);}
+
+
