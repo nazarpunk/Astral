@@ -1,20 +1,20 @@
-"use_strict";
-window.setting = {};
-window.setting.game = {
-	P1startHealth : 50,
-	P2startHealth : 50,
-	P1startCardCount : 20,
-	P2startCardCount : 19,
-	P1startManaCount: 20,
-	P2startManaCount: 19,
-	P1startMinMana: 2,
-	P2startMinMana: 2,
-	P1startMaxMana: 6,
-	P2startMaxMana: 6,
-
+'use_strict';
+window.setting = {
+	startHealth1 : 50,
+	startHealth2 : 50,
+	manaStart1 : 20,
+	manaStart2 : 19,
+	manaMin1: 2,
+	manaMax1: 6,
+	manaMin2: 2,
+	manaMax2: 6, 
+	cardStart1 : 20,
+	carfStart2 : 19,
+	
 };
-window.setting.card = {
-	F:{
+
+window.card = {
+	f:{
 		1 : {
 			type: "magic",
 			name: "Огненные капли",
@@ -90,7 +90,7 @@ window.setting.card = {
 			desc: "Заклы хозяина +50% дамаги"
 		}
 	},
-	W : {
+	w : {
 		1 : {
 			type: "magic",
 			name: "Вода",
@@ -104,7 +104,7 @@ window.setting.card = {
 			desc: "При влёте +1 Земли хозяину"
 		},
 		3 : {
-			type: "Magic",
+			type: "magic",
 			name: "Весы",
 			desc: "Каждый юнит врага дамажит сам себя"
 		},
@@ -168,7 +168,7 @@ window.setting.card = {
 			desc: "-1 всей маны врагу каждый ход"
 		}
 	},
-	A : {
+	a : {
 		1 : {
 			type: "unit",
 			attack: 3,
@@ -246,7 +246,7 @@ window.setting.card = {
 			desc: "при влте полностью хилит своих"
 		}
 	},
-	E : {
+	e : {
 		1 : {
 			type: "unit",
 			attack: 1,
@@ -311,7 +311,7 @@ window.setting.card = {
 			name: "Метеориты",
 			desc: "дамаэит 20 по всем юнитам, если Земля > 11 своих не бьт"
 		},
-		110 : {
+		11 : {
 			type: "unit",
 			attack: -1,
 			defence: 60,
@@ -326,7 +326,7 @@ window.setting.card = {
 			desc: "сплэш, регенит 4"
 		}
 	},
-	D : {
+	d : {
 		1 : {
 			type: "unit",
 			attack: 3,

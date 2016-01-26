@@ -6,102 +6,97 @@
     <link href="data:image/x-icon;base64,AAABAAEAEBACAAAAAACwAAAAFgAAACgAAAAQAAAAIAAAAAEAAQAAAAAAQAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAD/AIACAACAAgAA2DYAAHAcAAA4OAAALugAAAfAAAADgAAAB8AAAB7wAAA8eAAAeDgAAHAcAABgDAAAQAQAAEAEAAB//QAAf/0AACfJAACP4wAAx8cAANEXAAD4PwAA/H8AAPg/AADhDwAAw4cAAIfHAACP4wAAn/MAAL/7AAC/+wAA" rel="icon" type="image/x-icon" />
     <title>Zar Tournament</title>
     
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/bootstrap-theme.min.css" rel="stylesheet" />
     <link href="css/main.css" rel="stylesheet" />
     
     <script src="js/jquery-2.1.4.min.js" type="text/javascript"></script>
-    <script src="js/setting.js" type="text/javascript"></script>
-    <script src="js/main.js" type="text/javascript"></script>
+
+	<script src="js/gameSetting.js" type="text/javascript"></script>
+	<script src="js/gameServer.js" type="text/javascript"></script>
+	<script src="js/gameUI.js" type="text/javascript"></script>
+    <script src="js/func.js" type="text/javascript"></script>
+
 </head>
 <body>
-<div id="wrap-table" class="block-table">
-	<div id="wrap-td">
-		<div id="wrap-content">
 
-			<div id="playWrap" class="block-table" style="visibility:hidden">
-				<div id="playL">
-					<div id="playLT" class="block-table">
-						<div><div class="avatar"></div></div>
-						<div>
-							<div class="username">Левосек</div>
-							<div id="P1health" class="health"></div>
-						</div>
-					</div>
-					<div id="playLB" class="block-table">
-						<div class="playManaMenuWrap">
-							<div id="P1cardBtnWrap" class="playManaMenu">
-								<div id="P1cardBtnF" data-player="1" data-mana="F" class="playManaMenuItem"><span>Огонь</span><b id="P1manaF"></b></div>
-								<div id="P1cardBtnW" data-player="1" data-mana="W" class="playManaMenuItem"><span>Вода</span><b id="P1manaW"></b></div>
-								<div id="P1cardBtnA" data-player="1" data-mana="A" class="playManaMenuItem"><span>Воздух</span><b id="P1manaA"></b></div>
-								<div id="P1cardBtnE" data-player="1" data-mana="E" class="playManaMenuItem"><span>Земля</span><b id="P1manaE"></b></div>
-								<div id="P1cardBtnD" data-player="1" data-mana="D" class="playManaMenuItem"><span>Смерть</span><b id="P1manaD"></b></div>
-								<div class="playManaMenuItem playSkipTurnBtn">skip</div>
-							</div>
-						</div>
-						<div>
-							<div id="P1cardWrap" class="playCardWrap"></div>
-						</div>
+<div id="wrap">
+	<div>
+		<div id="gameWrap" class="us-n">
+			<div id="gameLeft">
+				<div class="username">Левосек</div>
+				<div>
+					<div id="avatar1" class="avatar" style="background-image: url('img/avatar/1.jpg')"></div>
+					<div class="health">
+						<div><span id="health1"></span><div>-34</div></div>
 					</div>
 				</div>
-				<div id="playC">
-					<div id="playCT">
-						<div id="playCounter" class="block-table">
-							<div class="playCounterWin"><span>Побед</span><b>0</b></div>
-							<div><span>Бой</span><b>1</b></div>
-							<div class="playCounterWin"><span>Побед</span><b>0</b></div>
+				<div class="manaMenuWrap d-t">
+					<div class="manaMenuWrapper">
+						<div class="manaMenu">
+							<div id="cardBtn1f" data-player="1" data-mana="f" class="manaMenuItem"><span>Огонь</span><b id="mana1f"></b></div>
+							<div id="cardBtn1w" data-player="1" data-mana="w" class="manaMenuItem"><span>Вода</span><b id="mana1w"></b></div>
+							<div id="cardBtn1a" data-player="1" data-mana="a" class="manaMenuItem"><span>Воздух</span><b id="mana1a"></b></div>
+							<div id="cardBtn1e" data-player="1" data-mana="e" class="manaMenuItem"><span>Земля</span><b id="mana1e"></b></div>
+							<div id="cardBtn1d" data-player="1" data-mana="d" class="manaMenuItem"><span>Смерть</span><b id="mana1d"></b></div>
+							<div data-player="1" data-mana="skip" class="manaMenuItem">skip</div>
 						</div>
 					</div>
-					<div id="playCB">
-						<div>
-							<div data-owner="1" class="cardCell"><div class="cardCellText">Empty</div></div>
-							<div data-owner="1" class="cardCell"><div class="cardCellText">Empty</div></div>
-							<div data-owner="1" class="cardCell"><div class="cardCellText">Empty</div></div>
-							<div data-owner="1" class="cardCell"><div class="cardCellText">Empty</div></div>
-							<div data-owner="1" class="cardCell"><div class="cardCellText">Empty</div></div>
-						</div>
-						<div>
-							<div data-owner="2" class="cardCell"><div class="cardCellText">Empty</div></div>
-							<div data-owner="2" class="cardCell"><div class="cardCellText">Empty</div></div>
-							<div data-owner="2" class="cardCell"><div class="cardCellText">Empty</div></div>
-							<div data-owner="2" class="cardCell"><div class="cardCellText">Empty</div></div>
-							<div data-owner="2" class="cardCell"><div class="cardCellText">Empty</div></div>
-						</div>
+					<div class="manaMenuCardWrap">
+						<div id="cardWrap1"></div>
+						<div class="manaMenuHelp">dwd</div>
 					</div>
 				</div>
-				<div id="playR">
-					<div id="playRT" class="block-table">
-						<div>
-							<div class="username">Дровосек</div>
-							<div id="P2health" class="health"></div>
-						</div>
-						<div><div class="avatar"></div></div>
+				
+			</div>
+			<div id="gameCenter">
+				<div id="turn"></div>
+				<div id="slotWrap" class="d-t">
+					<div>
+						<div class="card"></div>
+						<div class="card"></div>
+						<div class="card"></div>
+						<div class="card"></div>
+						<div class="card"></div>
 					</div>
-					<div id="playLB" class="block-table">
-						<div>
-							<div id="P2cardWrap" class="playCardWrap"></div>
-						</div>
-						<div class="playManaMenuWrap">
-							<div id="P2cardBtnWrap" class="playManaMenu">
-								<div id="P2cardBtnF" data-player="2" data-mana="F" class="playManaMenuItem"><span>Огонь</span><b id="P2manaF"></b></div>
-								<div id="P2cardBtnW" data-player="2" data-mana="W" class="playManaMenuItem"><span>Вода</span><b id="P2manaW"></b></div>
-								<div id="P2cardBtnA" data-player="2" data-mana="A" class="playManaMenuItem"><span>Воздух</span><b id="P2manaA"></b></div>
-								<div id="P2cardBtnE" data-player="2" data-mana="E" class="playManaMenuItem"><span>Земля</span><b id="P2manaE"></b></div>
-								<div id="P2cardBtnD" data-player="2" data-mana="D" class="playManaMenuItem"><span>Смерть</span><b id="P2manaD"></b></div>
-								<div class="playManaMenuItem playSkipTurnBtn">skip</div>
-							</div>
+					<div>
+						<div class="card"></div>
+						<div class="card"></div>
+						<div class="card"></div>
+						<div class="card"></div>
+						<div class="card"></div>
+					</div>
+				</div>
+				
+			</div>
+			<div id="gameRight">
+				<div class="username">Дровосек</div>
+				<div>
+					<div class="health">
+						<div><span id="health2"></span><div>-34</div></div>
+					</div>
+					<div id="avatar2" class="avatar" style="background-image: url('img/avatar/2.jpg')"></div>
+				</div>
+				
+				<div class="manaMenuWrap d-t">
+					<div class="manaMenuCardWrap">
+						<div id="cardWrap2"></div>
+					</div>
+					<div class="manaMenuWrapper">
+						<div class="manaMenu">
+							<div id="cardBtn2f" data-player="2" data-mana="f" class="manaMenuItem"><span>Огонь</span><b id="mana2f"></b></div>
+							<div id="cardBtn2w" data-player="2" data-mana="w" class="manaMenuItem"><span>Вода</span><b id="mana2w"></b></div>
+							<div id="cardBtn2a" data-player="2" data-mana="a" class="manaMenuItem"><span>Воздух</span><b id="mana2a"></b></div>
+							<div id="cardBtn2e" data-player="2" data-mana="e" class="manaMenuItem"><span>Земля</span><b id="mana2e"></b></div>
+							<div id="cardBtn2d" data-player="2" data-mana="d" class="manaMenuItem"><span>Смерть</span><b id="mana2d"></b></div>
+							<div  data-player="2" data-mana="skip" class="manaMenuItem">skip</div>
 						</div>
 					</div>
 				</div>
 			</div>
 			
-			<div id="modalGameStart" class="modal">
-				<div class="modalContent">
+			<div id="modalGameNew" class="modal" style="display: none">
+				<div>
+					<div>
 					<p><h4>Начать новую игру?</h4></p>
-					<p>
-						<input id="gameTurnVisibleCheck" type="checkbox" />
-  						<label for="gameTurnVisibleCheck">Отворачивания</label>
-  					</p>
   					<p>
   						<h4>Кто ходит первый?</h4>
   						<span style="display: inline-block; text-align: left;"> 
@@ -115,13 +110,12 @@
   					</p>
 					<div class="ta-c"><button id="gameNewBtn" type="button" class="btn btn-gray">Погнали!</button></div>
 				</div>
-				
 			</div>
-
 			
-			<div id="copyright"><div><a href="https://vk.com/nazarpunk">nazarpunk</a><span>&nbsp;&copy;&nbsp;2016</span></div></div>
+			
 		</div>
 	</div>
-</div>	
+</div>
+
 </body>
 </html>    
