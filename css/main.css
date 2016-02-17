@@ -83,7 +83,24 @@ body {
 	display: inline-block;
 }
 
-#gameCenter {display: inline-block;}
+#gameCenter {
+	display: inline-block;
+	position: relative;
+}
+
+#copyrightWrap {
+	font-size: 12px;
+	padding-top: 12px;
+}
+
+#copyrightWrap > a {
+	text-decoration: none;
+	color: white;
+}
+#copyrightWrap > a:hover {
+	text-decoration: underline;
+	color: green;
+}
 
 /* block */
 
@@ -144,7 +161,23 @@ body {
 	background: rgba(0,0,0,0.5);
 	color: white;
 	text-align: center;
-	padding-top: 40%;
+	overflow: hidden;
+}
+
+.card > .cardNoMana:before {
+	content: "";
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+}
+
+.card > .cardNoMana > div {
+	display: inline-block;
+}
+
+#slotWrap { padding-bottom: 8px;}
+#slotWrap .card.active {
+	border-color: yellow;
 }
 
 
@@ -158,8 +191,8 @@ body {
 #turn {
 	padding : 0 10px;
 	border: 1px solid gray;
-	margin-bottom: 50px;
-	
+	margin-bottom: 33px;
+	transition: border-radius 0.25s linear 0s;
 }
 
 #turn.p1 {
@@ -211,7 +244,7 @@ body {
 /* mana menu */
 .manaMenuHelp {
 	background: rgba(0,0,0,0.6);
-	border: 1px solid gray;
+	border: 1px solid black;
 	border-radius: 3px;
 	margin-right: 6px;
 	padding: 4px;
@@ -256,6 +289,8 @@ body {
 }
 .manaMenuItem:first-child {border-top:0}
 .manaMenuItem:last-child {
+	padding: 0;
+	font-size: 12px;
 	border-bottom:0;
 	border-radius: inherit;
 }
@@ -310,7 +345,7 @@ body {
 }
 
 
-
+.ta-c {text-align: center}
 .d-ib {display: inline-block}
 .d-t {display: table; table-layout: fixed}
 .d-t > div {display: table-cell}

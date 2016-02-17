@@ -10,24 +10,133 @@ window.server = function(){
 
 };
 
+server.prototype.turn = function(mana,card,slt){
+	var player = this.data['p'+this.data.turn];
+	var player2 = (this.data.turn == 1) ? this.data.p2 : this.data.p1;
+	
+	var slot = player.slot[slt];
+	
+	//add to slot
+	for (var i = 1; i<=5; i++){
+		player2.slot[i].skip--;
+	}
+	
+	
+	//CALCULATE DAMAGE
+	var findDeath = function(){
+		var arr = [];
+		
+		for(var i=1;i<=5;i++){	
+			if (player2.slot[i].mana == '' ) continue;
+			if (player2.slot[i].defence > 0 ) continue;
+			
+			player2.slot[i].mana = '';
+			arr.push(i);
+			
+		};
+		return arr;
+	};
+	
+	//set start
+	this.data.actions = [];
+	player.healthOld = player.health;
+	player2.healthOld = player2.health;
+
+	//spell
+	//summon
+	if (mana != 'skip') {
+		if ($.inArray(card, player.cardVisible[mana]) < 0) player.cardVisible[mana].push(card);
+		if (this.card[mana][card].type=='unit') {
+			slot.mana = mana;
+			slot.card = card;
+			slot.attack = this.card[mana][card].attack;	
+			slot.defence = this.card[mana][card].defence;
+			slot.skip = 1;
+			
+			var obj = {
+				summon: slt,
+				mana : slot.mana,
+				card : slot.card,
+				attack: slot.attack,
+				defence: slot.defence,
+				skip: slot.skip,
+				healthOwner: player.health,
+				healthEnemy: player2.health,
+				slotOwner: cloneObj(player.slot),
+				slotEnemy: cloneObj(player2,slot)
+			};
+			this.data.actions.push(obj);
+		}
+	}
+	
+	//slot attack
+	for (var i=1; i<=5; i++){
+		if (player.slot[i].mana == '') continue;
+		if (player.slot[i].skip > 0) continue;
+		
+		if (player2.slot[i].mana == '') {
+			player2.health -= player.slot[i].attack;	
+		} else {
+			player2.slot[i].defence -= player.slot[i].attack;
+		}
+
+		var obj = {
+			slot: i,
+			healthOwner: player.health,
+			healthEnemy: player2.health,
+			slotOwner: cloneObj(player.slot),
+			slotEnemy: cloneObj(player2,slot),
+			death: findDeath() 
+		};
+		this.data.actions.push(obj);
+	}
+	
+
+	
+	//find active slot
+	for (var i = 1; i<=5; i++){
+		player.slotActive = 0;
+		if (player.slot[i].mana == "") {
+			player.slotActive = i;
+			break;
+		}
+	}
+	
+	//next player
+	this.data.turnOld = this.data.turn; 
+	this.data.turn = (this.data.turn == 1) ? 2 : 1;
+	this.data.turnCounter++;
+	
+	//add mana
+	for (v in this.data['p'+this.data.turn].mana) {
+		this.data['p'+this.data.turn].mana[v]++;
+	}
+
+	return this.data;
+};
+
 
 server.prototype.game = function(arg){
 	if (this.gameState == 1){ return this.data; }
 	
 	if(typeof arg == 'undefined') arg = {};
-	var firstTurn = arg.firstTurn || 1;
+	var firstTurn = arg.firstTurn || rand(1,2);
 	var secTurn = (firstTurn == 1) ? 2 : 1;
 
 	var self = this;
 	
 	this.data = {
 		turn: firstTurn,
+		turnOld: secTurn,
 		turnCounter: 1,
+		actions:[],
 		p1 : {
-			health : this.setting.startHealth1
+			health : this.setting.startHealth1,
+			healthOld: this.setting.startHealth1,
 		},
 		p2 : {
-			health : this.setting.startHealth2
+			health : this.setting.startHealth2,
+			healthOld: this.setting.startHealth2,
 		}
 	};
 	
@@ -93,6 +202,18 @@ server.prototype.game = function(arg){
 	this.data.p1.card = getCard(firstTurn);
 	this.data.p2.card = getCard(secTurn);
 	
+	//slot
+	this.data.p1.slotActive = 1;
+	var slotTpl = {
+		mana:"",
+		card:"",
+		defence:0,
+		attack:0
+	}; 
+	
+	this.data.p1.slot = {1:cloneObj(slotTpl),2:cloneObj(slotTpl),3:cloneObj(slotTpl),4:cloneObj(slotTpl),5:cloneObj(slotTpl)};
+	this.data.p2.slotActive = 1;
+	this.data.p2.slot = cloneObj(this.data.p1.slot);
 
 	this.gameState = 1;
 	return 0;

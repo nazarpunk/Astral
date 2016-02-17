@@ -26,12 +26,12 @@
 				<div>
 					<div id="avatar1" class="avatar" style="background-image: url('img/avatar/1.jpg')"></div>
 					<div class="health">
-						<div><span id="health1"></span><div>-34</div></div>
+						<div><span id="health1"></span><div></div></div>
 					</div>
 				</div>
 				<div class="manaMenuWrap d-t">
 					<div class="manaMenuWrapper">
-						<div class="manaMenu">
+						<div id="manaMenu1" class="manaMenu">
 							<div id="cardBtn1f" data-player="1" data-mana="f" class="manaMenuItem"><span>Огонь</span><b id="mana1f"></b></div>
 							<div id="cardBtn1w" data-player="1" data-mana="w" class="manaMenuItem"><span>Вода</span><b id="mana1w"></b></div>
 							<div id="cardBtn1a" data-player="1" data-mana="a" class="manaMenuItem"><span>Воздух</span><b id="mana1a"></b></div>
@@ -42,7 +42,7 @@
 					</div>
 					<div class="manaMenuCardWrap">
 						<div id="cardWrap1"></div>
-						<div class="manaMenuHelp">dwd</div>
+						<div id="manaMenuHelp1" class="manaMenuHelp" style="display:none"></div>
 					</div>
 				</div>
 				
@@ -51,27 +51,28 @@
 				<div id="turn"></div>
 				<div id="slotWrap" class="d-t">
 					<div>
-						<div class="card"></div>
-						<div class="card"></div>
-						<div class="card"></div>
-						<div class="card"></div>
-						<div class="card"></div>
+						<div id="slot11" data-player="1" data-slot="1" class="card"></div>
+						<div id="slot12" data-player="1" data-slot="2" class="card"></div>
+						<div id="slot13" data-player="1" data-slot="3" class="card"></div>
+						<div id="slot14" data-player="1" data-slot="4" class="card"></div>
+						<div id="slot15" data-player="1" data-slot="5" class="card"></div>
 					</div>
 					<div>
-						<div class="card"></div>
-						<div class="card"></div>
-						<div class="card"></div>
-						<div class="card"></div>
-						<div class="card"></div>
+						<div id="slot21" data-player="2" data-slot="1" class="card"></div>
+						<div id="slot22" data-player="2" data-slot="2" class="card"></div>
+						<div id="slot23" data-player="2" data-slot="3" class="card"></div>
+						<div id="slot24" data-player="2" data-slot="4" class="card"></div>
+						<div id="slot25" data-player="2" data-slot="5" class="card"></div>
 					</div>
 				</div>
-				
+				<div><button id="turnReplayBtn" type="button">replay turn</button></div>
+				<div id="copyrightWrap"><a href="log/index.html" target="_blank">Что готово?</a></div>
 			</div>
 			<div id="gameRight">
 				<div class="username">Дровосек</div>
 				<div>
 					<div class="health">
-						<div><span id="health2"></span><div>-34</div></div>
+						<div><span id="health2"></span><div></div></div>
 					</div>
 					<div id="avatar2" class="avatar" style="background-image: url('img/avatar/2.jpg')"></div>
 				</div>
@@ -79,9 +80,10 @@
 				<div class="manaMenuWrap d-t">
 					<div class="manaMenuCardWrap">
 						<div id="cardWrap2"></div>
+						<div id="manaMenuHelp2" class="manaMenuHelp" style="display:none"></div>
 					</div>
 					<div class="manaMenuWrapper">
-						<div class="manaMenu">
+						<div id="manaMenu2" class="manaMenu">
 							<div id="cardBtn2f" data-player="2" data-mana="f" class="manaMenuItem"><span>Огонь</span><b id="mana2f"></b></div>
 							<div id="cardBtn2w" data-player="2" data-mana="w" class="manaMenuItem"><span>Вода</span><b id="mana2w"></b></div>
 							<div id="cardBtn2a" data-player="2" data-mana="a" class="manaMenuItem"><span>Воздух</span><b id="mana2a"></b></div>
